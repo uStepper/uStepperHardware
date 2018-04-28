@@ -105,10 +105,10 @@
 	           "architecture": "avr",
 	           "version": "2.0.0",
 	           "category": "uStepper",
-	           "url": "https://git.parkalot.dk/uStepperTest/uStepperHardware",
-			   "checksum": "SHA-256:33E9DF4A75C7B030304AB1BCA5D74FDDB1FC1D021C41818468EBA844A6E6838C",
+	           "url": "https://git.parkalot.dk/uStepperTest/uStepperHardware/raw/master/uStepperHardware.zip",
+			   "checksum": "SHA-256:F22F54DC73A29FE6215B4979A91F988FFF9B2CFA3D547EB462905BF412B63F42",
 	           "archiveFileName": "uStepper_hardware.zip",
-	           "size": "143793", 
+	           "size": "161395", 
 	           "boards":
 				[
 	              { "name": "uStepper" },
@@ -126,3 +126,4 @@
 		}
 	]  
 }
+https://git.parkalot.dk/uStepperTest/uStepperHardware/raw/master/uStepper_hardware.rar
