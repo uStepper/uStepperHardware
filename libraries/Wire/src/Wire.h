@@ -21,9 +21,12 @@
 
 #ifndef TwoWire_h
 #define TwoWire_h
-
-#ifdef ARDUINO_AVR_USTEPPER_S_LIGHT
+#if defined(ARDUINO_AVR_USTEPPER_S_LIGHT)
   #error "DO NOT USE I2C0 ! Use I2C1 instead"
+#endif
+
+#if defined(ARDUINO_AVR_USTEPPER)
+  #error "DO NOT USE I2C0 ! This BUS is used by the internal encoder !"
 #endif
 
 #include <inttypes.h>

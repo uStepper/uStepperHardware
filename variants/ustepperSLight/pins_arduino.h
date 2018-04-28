@@ -65,32 +65,10 @@ static const uint8_t ENA = 17;
 
 #define LED_BUILTIN 2
 
-
-	PD, // D0 - RXD0 - PD0
-	PD,	// D1 - TXD0 - PD1
-	PD, // D2 - PD3 - PWM - INT0 - LED
-	PD, // D3 - PD2 - PWM - INT1
-	PE, // D4 - MOSI1 - PE3
-	PC, // D5 - MISO1 - PC0
-	PC, // D6 - SCK1 - PC1
-	PE, // D7 - SCL1 - PE1
-	PE, // D8 - SDA1 - PE0 
-	PB, // D9 - TXD1 - PB3
-	PB, // D10 - RXD1 - PB4
-	PC, // D11 - A0 - PC3
-	PC, // D12 - A1 - PC2
-	PE, // D13 - A2 - PE2
-	PB, // D14 - CLKO - PB0
-	PB, // D15 - STEP - PB1
-	PB, // D16 - DIR - PB2
-	PD, // D17 - ENA - PD4
-	PC, // D18 - SDA0 - PC4
-	PC, // D19 - SCL0 - PC5
-
 #define digitalPinToPCICR(p)    ((((p) <= 8) || ((p) >= 11 && (p) <= 13))  ? (&PCICR) : ((uint8_t *)0))
 #define digitalPinToPCICRbit(p) ((((p) <= 3)) ? 2 : (((p) >= 11 && (p) <= 12) ? 0 : (((p) == 13 || (p) == 4 || (p) == 8 || (p) == 7) ? 3 : 1)))
 #define digitalPinToPCMSK(p)    ((((p) <= 3)) ? (&PCMSK2) : ((((p) >= 11 && (p) <= 12)) ? (&PCMSK1) : (((p) == 13 || (p) == 4 || (p) == 8 || (p) == 7) ? (&PCMSK3) : (((p) <= 8) ? (&PCMSK3) : ((uint8_t *)0)))))
-#define digitalPinToPCMSKbit(p) ( ((p) <= 1) ? (p) : ( ((p) == 2) ? (p) + 1 : ( (((p) == 3)) ? (p) - 1 : (((p) == 5 || (p) == 6) ? (p) - 5 : ( ?  : (p) - 18))))) 
+#define digitalPinToPCMSKbit(p) ( ( (p) <= 1) ? (p) : (((p) == 2) ? (p) + 1 : ((((p) == 3)) ? (p) - 1 : (((p) == 5 || (p) == 6) ? (p) - 5 : (((p) == 7 || (p) == 9 || (p) == 10) ? (p) - 6 : (((p) == 8 || (p) == 11) ? (p) - 8 : ((p) == 12 ? (p) - 10 : ((p) == 13 ? (p) - 11 : (((p) == 14 || (p) == 15 || (p) == 16 || (p) == 18 || (p) == 19) ? (p) - 14 :	(p) - 13))))))))) 
 #define digitalPinToInterrupt(p)  ((p) == INT0 ? 0 : ((p) == INT1 ? 1 : NOT_AN_INTERRUPT))
 
 #ifdef ARDUINO_MAIN
