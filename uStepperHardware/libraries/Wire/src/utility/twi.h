@@ -25,6 +25,11 @@
 
   //#define ATMEGA8
 
+  #ifdef TW_STATUS_MASK0
+    #undef TW_STATUS_MASK0
+  #endif
+  #define TW_STATUS_MASK0 (_BV(TWS07)| _BV(TWS06)| _BV(TWS05)| _BV(TWS04)| _BV(TWS03)) 
+
   #ifndef TWI_FREQ
   #define TWI_FREQ 100000L
   #endif

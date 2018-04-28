@@ -77,8 +77,8 @@ void twi_init1(void)
   digitalWrite(SCL1, 1);
 
   // initialize twi prescaler and bit rate
-  cbi(TWSR1, TWPS0);
-  cbi(TWSR1, TWPS1);
+  cbi(TWSR1, TWPS10);
+  cbi(TWSR1, TWPS11);
   TWBR1 = ((F_CPU / TWI_FREQ) - 16) / 2;
 
   /* twi bit rate formula from atmega128 manual pg 204
@@ -87,7 +87,7 @@ void twi_init1(void)
   It is 72 for a 16mhz Wiring board with 100kHz TWI */
 
   // enable twi module, acks, and twi interrupt
-  TWCR1 = _BV(TWEN) | _BV(TWIE) | _BV(TWEA);
+  TWCR1 = _BV(TWEN1) | _BV(TWIE1) | _BV(TWEA1);
 }
 
 /* 
@@ -99,11 +99,11 @@ void twi_init1(void)
 void twi_disable1(void)
 {
   // disable twi module, acks, and twi interrupt
-  TWCR1 &= ~(_BV(TWEN) | _BV(TWIE) | _BV(TWEA));
+  TWCR1 &= ~(_BV(TWEN1) | _BV(TWIE1) | _BV(TWEA1));
 
   // deactivate internal pullups for twi.
-  digitalWrite(SDA, 0);
-  digitalWrite(SCL, 0);
+  digitalWrite(SDA1, 0);
+  digitalWrite(SCL1, 0);
 }
 
 /* 
@@ -169,12 +169,12 @@ uint8_t twi_readFrom1(uint8_t address, uint8_t* data, uint8_t length, uint8_t se
     twi_inRepStart = false;			// remember, we're dealing with an ASYNC ISR
     do {
       TWDR1 = twi_slarw;
-    } while(TWCR1 & _BV(TWWC));
-    TWCR1 = _BV(TWINT) | _BV(TWEA) | _BV(TWEN) | _BV(TWIE);	// enable INTs, but not START
+    } while(TWCR1 & _BV(TWWC1));
+    TWCR1 = _BV(TWINT1) | _BV(TWEA1) | _BV(TWEN1) | _BV(TWIE1);	// enable INTs, but not START
   }
   else
     // send start condition
-    TWCR1 = _BV(TWEN) | _BV(TWIE) | _BV(TWEA) | _BV(TWINT) | _BV(TWSTA);
+    TWCR1 = _BV(TWEN1) | _BV(TWIE1) | _BV(TWEA1) | _BV(TWINT1) | _BV(TWSTA1);
 
   // wait for read operation to complete
   while(TWI_MRX == twi_state){
@@ -251,12 +251,12 @@ uint8_t twi_writeTo1(uint8_t address, uint8_t* data, uint8_t length, uint8_t wai
     twi_inRepStart = false;			// remember, we're dealing with an ASYNC ISR
     do {
       TWDR1 = twi_slarw;				
-    } while(TWCR1 & _BV(TWWC));
-    TWCR1 = _BV(TWINT) | _BV(TWEA) | _BV(TWEN) | _BV(TWIE);	// enable INTs, but not START
+    } while(TWCR1 & _BV(TWWC1));
+    TWCR1 = _BV(TWINT1) | _BV(TWEA1) | _BV(TWEN1) | _BV(TWIE1);	// enable INTs, but not START
   }
   else
     // send start condition
-    TWCR1 = _BV(TWINT) | _BV(TWEA) | _BV(TWEN) | _BV(TWIE) | _BV(TWSTA);	// enable INTs
+    TWCR1 = _BV(TWINT1) | _BV(TWEA1) | _BV(TWEN1) | _BV(TWIE1) | _BV(TWSTA1);	// enable INTs
 
   // wait for write operation to complete
   while(wait && (TWI_MTX == twi_state)){
@@ -338,9 +338,9 @@ void twi_reply1(uint8_t ack)
 {
   // transmit master read ready signal, with or without ack
   if(ack){
-    TWCR1 = _BV(TWEN) | _BV(TWIE) | _BV(TWINT) | _BV(TWEA);
+    TWCR1 = _BV(TWEN1) | _BV(TWIE1) | _BV(TWINT1) | _BV(TWEA1);
   }else{
-	  TWCR1 = _BV(TWEN) | _BV(TWIE) | _BV(TWINT);
+	  TWCR1 = _BV(TWEN1) | _BV(TWIE1) | _BV(TWINT1);
   }
 }
 
@@ -353,11 +353,11 @@ void twi_reply1(uint8_t ack)
 void twi_stop1(void)
 {
   // send stop condition
-  TWCR1 = _BV(TWEN) | _BV(TWIE) | _BV(TWEA) | _BV(TWINT) | _BV(TWSTO);
+  TWCR1 = _BV(TWEN1) | _BV(TWIE1) | _BV(TWEA1) | _BV(TWINT1) | _BV(TWSTO1);
 
   // wait for stop condition to be exectued on bus
   // TWINT is not set after a stop condition!
-  while(TWCR1 & _BV(TWSTO)){
+  while(TWCR1 & _BV(TWSTO1)){
     continue;
   }
 
@@ -374,7 +374,7 @@ void twi_stop1(void)
 void twi_releaseBus1(void)
 {
   // release bus
-  TWCR1 = _BV(TWEN) | _BV(TWIE) | _BV(TWEA) | _BV(TWINT);
+  TWCR1 = _BV(TWEN1) | _BV(TWIE1) | _BV(TWEA1) | _BV(TWINT1);
 
   // update twi state
   twi_state = TWI_READY;
@@ -383,7 +383,7 @@ void twi_releaseBus1(void)
 ISR(TWI1_vect)
 {
 	// #define TW_STATUS		(TWSR & TW_STATUS_MASK)
-	switch(TWSR1 & TW_STATUS_MASK){
+	switch(TWSR1 & TW_STATUS_MASK1){
     // All Master
     case TW_START:     // sent start condition
     case TW_REP_START: // sent repeated start condition
@@ -408,7 +408,7 @@ ISR(TWI1_vect)
 	  // don't enable the interrupt. We'll generate the start, but we 
 	  // avoid handling the interrupt until we're in the next transaction,
 	  // at the point where we would normally issue the start.
-	  TWCR1 = _BV(TWINT) | _BV(TWSTA)| _BV(TWEN) ;
+	  TWCR1 = _BV(TWINT1) | _BV(TWSTA1)| _BV(TWEN1) ;
 	  twi_state = TWI_READY;
 	}
       }
@@ -448,7 +448,7 @@ ISR(TWI1_vect)
 	  // don't enable the interrupt. We'll generate the start, but we 
 	  // avoid handling the interrupt until we're in the next transaction,
 	  // at the point where we would normally issue the start.
-	  TWCR1 = _BV(TWINT) | _BV(TWSTA)| _BV(TWEN) ;
+	  TWCR1 = _BV(TWINT1) | _BV(TWSTA1)| _BV(TWEN1) ;
 	  twi_state = TWI_READY;
 	}    
 	break;

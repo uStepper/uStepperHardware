@@ -23,6 +23,11 @@
   #include <inttypes.h>
 
   //#define ATMEGA8
+  
+  #ifdef TW_STATUS_MASK1
+    #undef TW_STATUS_MASK1
+  #endif
+  #define TW_STATUS_MASK1 (_BV(TWS17)| _BV(TWS16)| _BV(TWS15)| _BV(TWS14)| _BV(TWS13)) 
 
   #ifndef TWI_FREQ
   #define TWI_FREQ 100000L
