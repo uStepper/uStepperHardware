@@ -40,6 +40,7 @@ static const uint8_t EXTINT0 = 2;
 static const uint8_t EXTINT1 = 3;
 static const uint8_t MOSI0 = 4;
 static const uint8_t MISO0 = 5;
+static const uint8_t SS0 = 17;
 static const uint8_t RXD1 = 5;
 static const uint8_t TXD1 = 4;
 static const uint8_t SCK0 = 6;

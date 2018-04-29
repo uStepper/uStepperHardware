@@ -16,10 +16,23 @@
 
 #include <Arduino.h>
 
+#if defined(ARDUINO_AVR_USTEPPER_S_LIGHT)
+  #error "SPI0 NOT AVAILABLE FOR USER ! This bus is used by the motor driver"
+#endif
+
 #ifndef SPCR
  #define SPCR SPCR0
  #define SPSR SPSR0
  #define SPDR SPDR0
+ #define MSTR MSTR0
+ #define SPE SPE0
+ #define DORD DORD0
+ #define SPIF SPIF0
+ #define SPIE SPIE0
+ #define MOSI MOSI0
+ #define MISO MISO0
+ #define SS SS0
+ #define SCK SCK0
 #endif
 
 // SPI_HAS_TRANSACTION means SPI has beginTransaction(), endTransaction(),

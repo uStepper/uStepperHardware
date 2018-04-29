@@ -16,6 +16,29 @@
 
 #include <Arduino.h>
 
+#if defined(ARDUINO_AVR_USTEPPER_S)
+  #error "SPI1 NOT AVAILABLE FOR USER ! This bus is used by the motor driver"
+#endif
+
+#if defined(ARDUINO_AVR_USTEPPER)
+  #error "SPI1 NOT AVAILABLE ON ATMEGA328P !"
+#endif
+
+#ifndef SPCR
+ #define SPCR SPCR1
+ #define SPSR SPSR1
+ #define SPDR SPDR1
+ #define MSTR MSTR1
+ #define SPE SPE1
+ #define DORD DORD1
+ #define SPIF SPIF1
+ #define SPIE SPIE1
+ #define MOSI MOSI1
+ #define MISO MISO1
+ #define SS SS1
+ #define SCK SCK1
+#endif
+
 // SPI_HAS_TRANSACTION means SPI has beginTransaction(), endTransaction(),
 // usingInterrupt(), and SPISetting(clock, bitOrder, dataMode)
 #define SPI_HAS_TRANSACTION 1
