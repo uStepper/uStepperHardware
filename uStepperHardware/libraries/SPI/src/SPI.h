@@ -16,10 +16,6 @@
 
 #include <Arduino.h>
 
-#if defined(ARDUINO_AVR_USTEPPER_S_LIGHT)
-  #error "SPI0 NOT AVAILABLE FOR USER ! This bus is used by the motor driver"
-#endif
-
 #ifndef SPCR
  #define SPCR SPCR0
  #define SPSR SPSR0

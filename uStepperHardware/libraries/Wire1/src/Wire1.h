@@ -22,6 +22,10 @@
 #ifndef TwoWire1_h
 #define TwoWire1_h
 
+#if defined(ARDUINO_AVR_USTEPPER_S_LIGHT)
+  #error "DO NOT USE I2C1 ! Use I2C0 instead"
+#endif
+
 #include <inttypes.h>
 #include "Stream.h"
 
