@@ -23,7 +23,7 @@
 #define TwoWire_h
 
 #if defined(ARDUINO_AVR_USTEPPER)
-  #error "DO NOT USE I2C0 ! This BUS is used by the internal encoder !"
+  #warning "DO NOT USE I2C0 ! This BUS is used by the internal encoder !"
 #endif
 
 #include <inttypes.h>
