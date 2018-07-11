@@ -43,8 +43,8 @@ static const uint8_t TXD1 = 4;
 static const uint8_t EXTINT0 = 3;
 static const uint8_t EXTINT1 = 2;
 
-static const uint8_t SCL0 = 15;
-static const uint8_t SDA0 = 14;
+static const uint8_t SCL0 = 14;
+static const uint8_t SDA0 = 15;
 
 static const uint8_t SCK0 = 6;
 static const uint8_t MISO0 = 5;
@@ -76,7 +76,7 @@ static const uint8_t ENA = 20;
 #define digitalPinToPCICR(p)    ((((p) <= 6) || ((p) >= 11 && (p) <= 16))  ? (&PCICR) : ((uint8_t *)0))
 #define digitalPinToPCICRbit(p) ((((p) <= 3)) ? 2 : ((((p) >= 4 && (p) <= 6)) ? 0 : (((p) <= 11 || (p) == 16 || (p) == 8 || (p) == 7) ? 3 : 1)))
 #define digitalPinToPCMSK(p)    ((((p) <= 3)) ? (&PCMSK2) : ((((p) >= 4 && (p) <= 6)) ? (&PCMSK0) : (((p) <= 11 || (p) == 16 || (p) == 8 || (p) == 7) ? (&PCMSK3) : (((p) <= 15) ? (&PCMSK1) : ((uint8_t *)0)))))
-#define digitalPinToPCMSKbit(p) ( ( (p) <= 1) ? (p) : (((p) == 2) ? (p) + 1 : ((((p) == 3)) ? (p) - 1 : (((p) == 5 || (p) == 6) ? (p) - 5 : (((p) == 7 || (p) == 9 || (p) == 10) ? (p) - 6 : (((p) == 8 || (p) == 11) ? (p) - 8 : ((p) == 12 ? (p) - 10 : ((p) == 13 ? (p) - 11 : (((p) == 14 || (p) == 15 || (p) == 16 || (p) == 18 || (p) == 19) ? (p) - 14 :	(p) - 13))))))))) 
+#define digitalPinToPCMSKbit(p) ( ( (p) <= 1)? (p) : (((p) == 2) ? (p) + 1 : ((((p) == 3) || (p) == 4) || (p) == 5 || (p) == 6 ? (p) - 1 : (((p) == 12) || (p) == 13 || (p) == 19)? (p) - 12 : (((p) == 7 || (p) == 9 || (p) == 10) ? (p) - 6 : (((p) == 8 || (p) == 11) ? (p) - 8 : ((p) == 15 ? (p) - 10 : ((p) == 14 ? (p) - 9 : (((p) == 16 || (p) == 18) ? (p) - 14 :	(p) - 16))))))))) 
 #define digitalPinToInterrupt(p)  ((p) == INT0 ? 0 : ((p) == INT1 ? 1 : NOT_AN_INTERRUPT))
 
 #ifdef ARDUINO_MAIN
@@ -148,33 +148,12 @@ const uint8_t PROGMEM digital_pin_to_bit_mask_PGM[] = {
 	_BV(5), // D14 - A3 - SCL0 - PC5
 	_BV(4), // D15 - A4 - SDA0 - PC4
 	_BV(2), // D16 - A5 - AUX1 - SS1 - PE2
-	_BV(7), // D19 - STEP - PD7
 	_BV(2), // D18 - DIR - PB2
+	_BV(7), // D19 - STEP - PD7
 	_BV(4), // D20 - ENA - PD4
 };
 
 const uint8_t PROGMEM digital_pin_to_timer_PGM[] = {
-	NOT_ON_TIMER, 	// D0 - RXD0 - PD0
-	NOT_ON_TIMER,	// D1 - TXD0 - PD1
-	TIMER2B, 		// D2 - PD3 - PWM - INT0 - LED
-	TIMER3B, 		// D3 - PD2 - PWM - INT1
-	NOT_ON_TIMER, 	// D4 - MOSI1 - PE3
-	NOT_ON_TIMER, 	// D5 - MISO1 - PC0
-	NOT_ON_TIMER, 	// D6 - SCK1 - PC1
-	NOT_ON_TIMER, 	// D7 - SCL1 - PE1
-	NOT_ON_TIMER, 	// D8 - SDA1 - PE0
-	NOT_ON_TIMER, 	// D9 - TXD1 - PB3
-	NOT_ON_TIMER, 	// D10 - RXD1 - PB4
-	NOT_ON_TIMER, 	// D11 - A0 - PC3
-	NOT_ON_TIMER, 	// D12 - A1 - PC2
-	NOT_ON_TIMER, 	// D13 - A2 - PE2
-	NOT_ON_TIMER, 	// D14 - CLKO - PB0
-	NOT_ON_TIMER, 	// D15 - STEP - PB1
-	NOT_ON_TIMER, 	// D16 - DIR - PB2
-	NOT_ON_TIMER, 	// D17 - ENA - PD4
-	NOT_ON_TIMER, 	// D18 - SDA0 - PC4
-	NOT_ON_TIMER, 	// D19 - SCL0 - PC5
-
 	NOT_ON_TIMER, // D0 - RXD0 - PD0
 	NOT_ON_TIMER,	// D1 - TXD0 - PD1
 	TIMER2B, // D2 - PD3 - PWM - INT1 - LED
@@ -190,8 +169,8 @@ const uint8_t PROGMEM digital_pin_to_timer_PGM[] = {
 	NOT_ON_TIMER, // D14 - A3 - SCL0 - PC5
 	NOT_ON_TIMER, // D15 - A4 - SDA0 - PC4
 	NOT_ON_TIMER, // D16 - A5 - AUX1 - SS1 - PE2
-	NOT_ON_TIMER, // D19 - STEP - PD7
 	NOT_ON_TIMER, // D18 - DIR - PB2
+	NOT_ON_TIMER, // D19 - STEP - PD7
 	NOT_ON_TIMER, // D20 - ENA - PD4
 
 };	

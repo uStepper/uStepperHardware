@@ -106,9 +106,9 @@
 	           "version": "2.0.0",
 	           "category": "uStepper",
 	           "url": "https://git.parkalot.dk/uStepperTest/uStepperHardware/raw/master/uStepperHardware.zip",
-			   "checksum": "SHA-256:A3298251176BD88CD85DF28AE336B4F41EF1B7A1E4EF5F3BCE1722C3D9CA8D6B",
+			   "checksum": "SHA-256:6ca25304f26e7e02fa70a284ecf489d18f17f53884c471f4a1911c46082d36c2",
 	           "archiveFileName": "uStepperHardware.zip",
-	           "size": "165056", 
+	           "size": "169941", 
 	           "boards":
 				[
 	              { "name": "uStepper" },
