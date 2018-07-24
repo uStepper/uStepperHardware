@@ -137,8 +137,8 @@ const uint8_t PROGMEM digital_pin_to_bit_mask_PGM[] = {
 	_BV(1),	// D1 - TXD0 - PD1
 	_BV(3), // D2 - PD3 - PWM - INT1 - LED
 	_BV(2), // D3 - PD2 - PWM - INT0
-	_BV(4), // D4 - MOSI0 - TXD1 - PB3
-	_BV(5), // D5 - MISO0 - RXD1 - PB4
+	_BV(3), // D4 - MOSI0 - TXD1 - PB3
+	_BV(4), // D5 - MISO0 - RXD1 - PB4
 	_BV(5), // D6 - SCK0 - PB5
 	_BV(1), // D7 - SCL1 - PE1
 	_BV(0), // D8 - SDA1 - PE0

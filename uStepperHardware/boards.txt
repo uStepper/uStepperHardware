@@ -60,8 +60,8 @@ uStepperSLight.bootloader.tool=avrdude
 uStepperSLight.bootloader.low_fuses=0xBF
 uStepperSLight.bootloader.high_fuses=0xDE
 uStepperSLight.bootloader.extended_fuses=0xF7
-uStepperSLight.bootloader.unlock_bits=0x3F
-uStepperSLight.bootloader.lock_bits=0x0F
+uStepperSLight.bootloader.unlock_bits=0x2F
+uStepperSLight.bootloader.lock_bits=0x2F
 uStepperSLight.bootloader.file=optiboot_atmega328pb.hex
 
 uStepperSLight.build.mcu=atmega328pb
