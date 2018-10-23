@@ -100,25 +100,25 @@
 	            }
 	          ]
 	        },
-			 {
-	           "name": "uStepper",
-	           "architecture": "avr",
-	           "version": "2.0.0",
-	           "category": "uStepper",
-	           "url": "https://git.parkalot.dk/uStepperTest/uStepperHardware/raw/master/uStepperHardware.zip",
-			   "checksum": "SHA-256:6d7680d2bac780ddc767e98187ab47dc97106b67a9518782c596ca6b58c4d0e7",
-	           "archiveFileName": "uStepperHardware.zip",
-	           "size": "169941", 
-	           "boards":
+			{
+			   "name": "uStepper",
+			   "architecture": "avr",
+			   "version": "2.0.0",
+			   "category": "uStepper",
+			   "url": "https://git.parkalot.dk/uStepperTest/uStepperHardware/raw/master/uStepperHardware.zip",
+			   "checksum": "SHA-256:5f4157e8591a3d398c3d77edf98715e1660f1fe18cc5a1ccc6838e426564641f",
+			   "archiveFileName": "uStepperHardware.zip",
+			   "size": "258132", 
+			   "boards":
 				[
-	              { "name": "uStepper" },
-	              { "name": "uStepperSLight" },
-	              { "name": "uStepperS" }
-	           	],
-	           "toolsDependencies":
+			      { "name": "uStepper" },
+			      { "name": "uStepperSLight" },
+			      { "name": "uStepperS" }
+			   	],
+			   "toolsDependencies":
 				[				
 				]
-	        }
+			}
 	     ],      	
 		 "tools":
 		  [		
