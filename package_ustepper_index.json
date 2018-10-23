@@ -106,7 +106,26 @@
 			   "version": "2.0.0",
 			   "category": "uStepper",
 			   "url": "https://git.parkalot.dk/uStepperTest/uStepperHardware/raw/master/uStepperHardware.zip",
-			   "checksum": "SHA-256:5f4157e8591a3d398c3d77edf98715e1660f1fe18cc5a1ccc6838e426564641f",
+			   "checksum": "SHA-256:6d7680d2bac780ddc767e98187ab47dc97106b67a9518782c596ca6b58c4d0e7",
+			   "archiveFileName": "uStepperHardware.zip",
+			   "size": "169941", 
+			   "boards":
+				[
+			      { "name": "uStepper" },
+			      { "name": "uStepperSLight" },
+			      { "name": "uStepperS" }
+			   	],
+			   "toolsDependencies":
+				[				
+				]
+			},
+			{
+			   "name": "uStepper",
+			   "architecture": "avr",
+			   "version": "2.1.0",
+			   "category": "uStepper",
+			   "url": "https://git.parkalot.dk/uStepperTest/uStepperHardware/raw/master/uStepperHardware.zip",
+			   "checksum": "SHA-256:d94ed6157fee03d6f4c1f9d5451556842153f9ad5ec42f140c54e015bf355aaa",
 			   "archiveFileName": "uStepperHardware.zip",
 			   "size": "258132", 
 			   "boards":
@@ -123,30 +142,6 @@
 		 "tools":
 		  [		
 		  ]
-		},
-		{
-		   "name": "uStepper",
-		   "architecture": "avr",
-		   "version": "2.1.0",
-		   "category": "uStepper",
-		   "url": "https://git.parkalot.dk/uStepperTest/uStepperHardware/raw/master/uStepperHardware.zip",
-		   "checksum": "SHA-256:d94ed6157fee03d6f4c1f9d5451556842153f9ad5ec42f140c54e015bf355aaa",
-		   "archiveFileName": "uStepperHardware.zip",
-		   "size": "258132", 
-		   "boards":
-			[
-		      { "name": "uStepper" },
-		      { "name": "uStepperSLight" },
-		      { "name": "uStepperS" }
-		   	],
-		   "toolsDependencies":
-			[				
-			]
 		}
-     ],      	
-	 "tools":
-	  [		
-	  ]
-	}
 	]  
 }
