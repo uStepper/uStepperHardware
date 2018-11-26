@@ -17,11 +17,11 @@
 #include <Arduino.h>
 
 #if defined(ARDUINO_AVR_USTEPPER_S)
-  #warning "SPI1 NOT AVAILABLE FOR USER ! This bus is used by the motor driver"
+  #error "SPI1 NOT AVAILABLE FOR USER ! This bus is used by the motor driver"
 #endif
 
 #if defined(ARDUINO_AVR_USTEPPER)
-  #warning "SPI1 NOT AVAILABLE ON ATMEGA328P !"
+  #error "SPI1 NOT AVAILABLE ON ATMEGA328P !"
 #endif
 
 #ifndef SPCR

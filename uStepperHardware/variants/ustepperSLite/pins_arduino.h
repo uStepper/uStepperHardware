@@ -87,13 +87,13 @@ static const uint8_t ENA = 19;
 
 #define digitalPinToPCICRbit(p) ( \\
 									(((p) <= 3)) ? 2 : \\
-										((((p) >= 4 && (p) <= 6)) || (p) == 10 || (p) == 9 ? 0 :\\ 
+										((((p) >= 4 && (p) <= 6)) || (p) == 10 || (p) == 9 ? 0 :\\
 											(((p) <= 11 || (p) == 16 || (p) == 8 || (p) == 7) ? 3 : 1))\\
 								)
 
 #define digitalPinToPCMSK(p)    ( \\
-									(((p) <= 3)) ? (&PCMSK2) : \\ 
-										((((p) >= 4 && (p) <= 6)) || (p) == 10 || (p) == 9  ? (&PCMSK0) : \\ 
+									(((p) <= 3)) ? (&PCMSK2) : \\
+										((((p) >= 4 && (p) <= 6)) || (p) == 10 || (p) == 9  ? (&PCMSK0) : \\
 											(((p) <= 11 || (p) == 16 || (p) == 8 || (p) == 7) ? (&PCMSK3) : \\
 												(((p) <= 15) ? (&PCMSK1) : ((uint8_t *)0)))) \\
 								)
@@ -232,5 +232,4 @@ const uint8_t PROGMEM digital_pin_to_timer_PGM[] = {
 //                            pins are NOT connected to anything by default.
 #define SERIAL_PORT_MONITOR   Serial
 #define SERIAL_PORT_HARDWARE  Serial
-
 #endif
