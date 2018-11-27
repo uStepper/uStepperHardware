@@ -103,16 +103,16 @@
 			{
 			   "name": "uStepper",
 			   "architecture": "avr",
-			   "version": "3.0.0",
+			   "version": "2.0.0",
 			   "category": "uStepper",
 			   "url": "https://github.com/uStepper/uStepperHardware/blob/master/uStepperHardware.zip?raw=true",
-			   "checksum": "SHA-256:c35f4ae4c194a4ce5cfb2fd0a4dc7ceb4ee8a5d4c0d640d773d5b40da2da8140",
+			   "checksum": "SHA-256:c803c862cf23cbcee656fa29c45d51e46a5eb57c32cd8beec016978a3dd161db",
 			   "archiveFileName": "uStepperHardware.zip",
-			   "size": "258116", 
+			   "size": "258128", 
 			   "boards":
 				[
 			      { "name": "uStepper" },
-			      { "name": "uStepperSLite" },
+			      { "name": "uStepper S-Lite" },
 			      { "name": "uStepperS" }
 			   	],
 			   "toolsDependencies":
