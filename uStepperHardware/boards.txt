@@ -48,7 +48,7 @@ uStepper.build.variant=ustepper
 
 ##############################################################
 
-uStepperSLight.name=uStepperSLite
+uStepperSLight.name=uStepper S-Lite
 
 uStepperSLight.upload.tool=avrdude
 uStepperSLight.upload.protocol=arduino
@@ -68,4 +68,4 @@ uStepperSLight.build.mcu=atmega328pb
 uStepperSLight.build.f_cpu=16000000L
 uStepperSLight.build.board=AVR_USTEPPER_S_LITE
 uStepperSLight.build.core=uStepper:arduino
-uStepperSLight.build.variant=ustepperSLite
+uStepperSLight.build.variant=ustepper S-Lite
