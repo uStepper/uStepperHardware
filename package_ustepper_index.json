@@ -106,13 +106,13 @@
 			   "version": "2.0.0",
 			   "category": "uStepper",
 			   "url": "https://github.com/uStepper/uStepperHardware/blob/master/uStepperHardware.zip?raw=true",
-			   "checksum": "SHA-256:c803c862cf23cbcee656fa29c45d51e46a5eb57c32cd8beec016978a3dd161db",
+			   "checksum": "SHA-256:f138fbf009bceba3e8e217c090223f7a4642a186aeea912cc2f658ffe1233a82",
 			   "archiveFileName": "uStepperHardware.zip",
-			   "size": "258128", 
+			   "size": "258129", 
 			   "boards":
 				[
 			      { "name": "uStepper" },
-			      { "name": "uStepper S-Lite" },
+			      { "name": "uStepper S-lite" },
 			      { "name": "uStepperS" }
 			   	],
 			   "toolsDependencies":
