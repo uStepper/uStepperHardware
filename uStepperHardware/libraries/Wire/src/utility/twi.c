@@ -380,7 +380,7 @@ void twi_releaseBus(void)
   twi_state = TWI_READY;
 }
 
-ISR(TWI0_vect)
+ISR(TWI_vect)
 {
   switch(TWSR0 & TW_STATUS_MASK0){
     // All Master

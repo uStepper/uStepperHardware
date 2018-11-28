@@ -16,7 +16,4 @@
 
 #define TWAMR _SFR_MEM8(0xBD)
 
-#define TWI_vect_num      24
-#define TWI_vect          _VECTOR(24)  /* Two-wire Serial Interface */
-
 #endif
