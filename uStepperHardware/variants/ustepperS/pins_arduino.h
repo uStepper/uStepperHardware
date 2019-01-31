@@ -75,7 +75,7 @@ static const uint8_t SPIMODE = 20;
 #define digitalPinToPCMSK(p)    ((((p) <= 3)) ? (&PCMSK2) : ((((p) >= 21 && (p) <= 23)) ? (&PCMSK1) : (((p) <= 6) ? (&PCMSK0) : ((uint8_t *)0))))
 #define digitalPinToPCMSKbit(p) ( ((p) <= 1) ? (p) : ( ((p) == 2) ? (p) + 1 : ( (((p) == 3) || ((p) <= 6)) ? (p) - 1 : (p) - 18))) 
 #define digitalPinToInterrupt(p)  ((p) == INT0 ? 0 : ((p) == INT1 ? 1 : NOT_AN_INTERRUPT))
-
+#define analogPinToChannel(p)	((p == 21) || (p == 0) ? 5 : ((p == 22) || (p == 1) ? 4 : ((p == 23) || (p == 2) ? 3 : -1)))
 #ifdef ARDUINO_MAIN
 
 // these arrays map port names (e.g. port B) to the
