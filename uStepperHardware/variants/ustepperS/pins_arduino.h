@@ -47,9 +47,9 @@ static const uint8_t SCK0 = 6;
 static const uint8_t SCL1 = 7;
 static const uint8_t SDA1 = 8;
 
-static const uint8_t A0 = 21;
+static const uint8_t A0 = 23;
 static const uint8_t A1 = 22;
-static const uint8_t A2 = 23;
+static const uint8_t A2 = 21;
 
 static const uint8_t SCL0 = 23;
 static const uint8_t SDA0 = 22;
