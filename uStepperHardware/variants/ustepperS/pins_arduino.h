@@ -157,17 +157,17 @@ const uint8_t PROGMEM digital_pin_to_bit_mask_PGM[] = {
 	_BV(4), // D18 - pd4 - PD4
 	_BV(5), // D19 - pd5 - PD5
 	_BV(6), // D20 - pd6 - PD6
-	_BV(3), // D21 - A0 - PC3
+	_BV(5), // D21 - A0 - PC3
 	_BV(4), // D22 - A1 - SDA0 - PC4
-	_BV(5), // D23 - A2 - SCL0 - PC5
+	_BV(3), // D23 - A2 - SCL0 - PC5
 };
 
 const uint8_t PROGMEM digital_pin_to_timer_PGM[] = {
-	NOT_ON_TIMER, // D0 - RXD0 - PD0
-	NOT_ON_TIMER,	// D1 - TXD0 - PD1
+	TIMER3A, // D0 - RXD0 - PD0
+	TIMER4A, // D1 - TXD0 - PD1
 	TIMER2B, // D2 - PD3 - PWM - INT0 - LED
 	TIMER3B, // D3 - PD2 - PWM - INT1
-	NOT_ON_TIMER, // D4 - MOSI0 - TXD1 - PB3
+	TIMER2A, // D4 - MOSI0 - TXD1 - PB3
 	NOT_ON_TIMER, // D5 - MISO0 - RXD1 - PB4
 	NOT_ON_TIMER, // D6 - SCK0 - PB5
 	NOT_ON_TIMER, // D7 - SCL1 - PE1
