@@ -111,7 +111,7 @@ static const uint8_t ENA = 19;
 																	(p) - 16)))))))\
 								)
 
-#define digitalPinToInterrupt(p)  ((p) == INT0 ? 0 : ((p) == INT1 ? 1 : NOT_AN_INTERRUPT))
+#define digitalPinToInterrupt(p)  ((p) == EXTINT0 ? 0 : ((p) == EXTINT1 ? 1 : NOT_AN_INTERRUPT))
 
 #ifdef ARDUINO_MAIN
 
