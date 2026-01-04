@@ -69,3 +69,27 @@ uStepperSLite.build.f_cpu=16000000L
 uStepperSLite.build.board=AVR_USTEPPER_S_LITE
 uStepperSLite.build.core=uStepper:arduino
 uStepperSLite.build.variant=ustepper S-lite
+
+##############################################################
+
+uStepperSLite.name=uStepper 8b
+
+uStepperSLite.upload.tool=avrdude
+uStepperSLite.upload.protocol=arduino
+uStepperSLite.upload.maximum_size=32256
+uStepperSLite.upload.maximum_data_size=2048
+uStepperSLite.upload.speed=115200
+
+uStepperSLite.bootloader.tool=avrdude
+uStepperSLite.bootloader.low_fuses=0xBF
+uStepperSLite.bootloader.high_fuses=0xDE
+uStepperSLite.bootloader.extended_fuses=0xF4
+uStepperSLite.bootloader.unlock_bits=0x2F
+uStepperSLite.bootloader.lock_bits=0x2F
+uStepperSLite.bootloader.file=optiboot_atmega328pb.hex
+
+uStepperSLite.build.mcu=atmega328pb
+uStepperSLite.build.f_cpu=16000000L
+uStepperSLite.build.board=AVR_USTEPPER_8_B
+uStepperSLite.build.core=uStepper:arduino
+uStepperSLite.build.variant=ustepper 8b
