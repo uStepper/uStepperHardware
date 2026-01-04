@@ -277,9 +277,9 @@
 				"version": "2.3.0",
 				"category": "uStepper",
 				"url": "https://github.com/uStepper/uStepperHardware/blob/develop/releases/uStepperHardware_2.3.0.zip?raw=true",
-				"checksum": "SHA-256:1776bb33831baf87a80d4c176469b43ea4042f4111211b64e516eef0bd9bcad1",
+				"checksum": "SHA-256:ac714e8c126904c820edfe21b5e8dbb10a411ff27c1ae138b630354be4c3efbc",
 				"archiveFileName": "uStepperHardware_2.3.0.zip",
-				"size": "294050", 
+				"size": "294106", 
 				"boards":
 				 [
 				   { "name": "uStepper" },

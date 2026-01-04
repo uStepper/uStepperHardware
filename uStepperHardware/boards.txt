@@ -72,24 +72,24 @@ uStepperSLite.build.variant=ustepper S-lite
 
 ##############################################################
 
-uStepperSLite.name=uStepper 8b
+uStepper8B.name=uStepper 8b
 
-uStepperSLite.upload.tool=avrdude
-uStepperSLite.upload.protocol=arduino
-uStepperSLite.upload.maximum_size=32256
-uStepperSLite.upload.maximum_data_size=2048
-uStepperSLite.upload.speed=115200
+uStepper8B.upload.tool=avrdude
+uStepper8B.upload.protocol=arduino
+uStepper8B.upload.maximum_size=32256
+uStepper8B.upload.maximum_data_size=2048
+uStepper8B.upload.speed=115200
 
-uStepperSLite.bootloader.tool=avrdude
-uStepperSLite.bootloader.low_fuses=0xBF
-uStepperSLite.bootloader.high_fuses=0xDE
-uStepperSLite.bootloader.extended_fuses=0xF4
-uStepperSLite.bootloader.unlock_bits=0x2F
-uStepperSLite.bootloader.lock_bits=0x2F
-uStepperSLite.bootloader.file=optiboot_atmega328pb.hex
+uStepper8B.bootloader.tool=avrdude
+uStepper8B.bootloader.low_fuses=0xBF
+uStepper8B.bootloader.high_fuses=0xDE
+uStepper8B.bootloader.extended_fuses=0xF4
+uStepper8B.bootloader.unlock_bits=0x2F
+uStepper8B.bootloader.lock_bits=0x2F
+uStepper8B.bootloader.file=optiboot_atmega328pb.hex
 
-uStepperSLite.build.mcu=atmega328pb
-uStepperSLite.build.f_cpu=16000000L
-uStepperSLite.build.board=AVR_USTEPPER_8_B
-uStepperSLite.build.core=uStepper:arduino
-uStepperSLite.build.variant=ustepper 8b
+uStepper8B.build.mcu=atmega328pb
+uStepper8B.build.f_cpu=16000000L
+uStepper8B.build.board=AVR_USTEPPER_8_B
+uStepper8B.build.core=uStepper:arduino
+uStepper8B.build.variant=ustepper 8b
