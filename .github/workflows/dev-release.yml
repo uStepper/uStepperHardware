@@ -35,6 +35,7 @@ jobs:
           echo "dev=${base}-dev.${GITHUB_RUN_NUMBER}" >> "$GITHUB_OUTPUT"
           echo "tag=v${base}-dev.${GITHUB_RUN_NUMBER}" >> "$GITHUB_OUTPUT"
           echo "DEV_VERSION=${base}-dev.${GITHUB_RUN_NUMBER}" >> "$GITHUB_ENV"
+          echo "TAG=v${base}-dev.${GITHUB_RUN_NUMBER}" >> "$GITHUB_ENV"
           echo "BASE_VERSION=$base" >> "$GITHUB_ENV"
 
       - name: Build Arduino package bundle (zip)
