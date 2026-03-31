@@ -343,11 +343,11 @@
         {
           "name": "uStepper",
           "architecture": "avr",
-          "version": "2.3.1-dev.2",
+          "version": "2.3.1-dev.3",
           "category": "uStepper",
-          "url": "https://github.com/uStepper/uStepperHardware/releases/download/v2.3.1-dev.2/uStepperHardware_2.3.1-dev.2.zip",
-          "archiveFileName": "uStepperHardware_2.3.1-dev.2.zip",
-          "checksum": "SHA-256:21c56497dcdeafbaace8478ec9aa79a37a99187ecaf0f504f8916691feb30eec",
+          "url": "https://github.com/uStepper/uStepperHardware/releases/download/v2.3.1-dev.3/uStepperHardware_2.3.1-dev.3.zip",
+          "archiveFileName": "uStepperHardware_2.3.1-dev.3.zip",
+          "checksum": "SHA-256:6f17b933d70fccbacbbef9c465f525678838f1335b93e457a1ff826fca327447",
           "size": "288860",
           "boards": [
             {
