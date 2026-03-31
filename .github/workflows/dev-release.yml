@@ -1,0 +1,69 @@
+name: Dev Release
+
+on:
+  push:
+    branches: [ develop ]
+
+permissions:
+  contents: write
+
+jobs:
+  dev-release:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout (full history + tags)
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+          fetch-tags: true
+
+      - name: Configure git author
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+
+      - name: Maybe bump VERSION (patch) if equals latest stable
+        run: |
+          bash .github/workflows/scripts/bump_version_if_equal_latest_stable.sh VERSION
+
+      - name: Read base + compute dev tag
+        id: ver
+        run: |
+          base="${BASE_VERSION:-$(tr -d ' \n\r\t' < VERSION)}"
+          echo "base=$base" >> "$GITHUB_OUTPUT"
+          echo "dev=${base}-dev.${GITHUB_RUN_NUMBER}" >> "$GITHUB_OUTPUT"
+          echo "tag=v${base}-dev.${GITHUB_RUN_NUMBER}" >> "$GITHUB_OUTPUT"
+          echo "DEV_VERSION=${base}-dev.${GITHUB_RUN_NUMBER}" >> "$GITHUB_ENV"
+          echo "BASE_VERSION=$base" >> "$GITHUB_ENV"
+
+      - name: Build Arduino package bundle (zip)
+        run: |
+          bash .github/workflows/scripts/build_zip_dev.sh
+
+      - name: Update package index for develop
+        run: |
+          bash .github/workflows/scripts/update_package_index_dev.sh
+
+      - name: Commit package index change (if any)
+        run: |
+          if git diff --quiet; then
+            echo "No package index change to commit."
+            exit 0
+          fi
+          git add package_ustepper_index.json VERSION
+          git commit -m "chore: update package index for develop ${BASE_VERSION} [skip ci]"
+          git push origin HEAD:develop
+
+      - name: Create GitHub prerelease (dev)
+        uses: softprops/action-gh-release@v2
+        with:
+          tag_name: ${{ steps.ver.outputs.tag }}
+          name: ${{ steps.ver.outputs.tag }}
+          prerelease: true
+          generate_release_notes: false
+          body: |
+            Dev release for version ${{ steps.ver.outputs.base }}
+            Built from develop branch.
+          files: |
+            ${{ env.TARBALL }}
