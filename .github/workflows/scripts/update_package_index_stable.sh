@@ -29,7 +29,7 @@ jq \
         boards: $template.boards,
         toolsDependencies: $template.toolsDependencies
       }) as $new
-      | .packages[0].platforms = (([$new] + ($stable | map(select(.version != $ver)))))
+      | .packages[0].platforms = (($stable | map(select(.version != $ver))) + [$new])
     end
 ' "$PACKAGE_INDEX" > "$tmp"
 mv "$tmp" "$PACKAGE_INDEX"

@@ -4,6 +4,14 @@ on:
   push:
     branches: [ develop ]
 
+  workflow_dispatch:
+    inputs:
+      promote_to_stable:
+        description: "Merge develop into master after dev release"
+        required: false
+        default: false
+        type: boolean
+
 permissions:
   contents: write
 
@@ -68,3 +76,11 @@ jobs:
             Built from develop branch.
           files: |
             ${{ env.TARBALL }}
+
+      - name: Promote develop to master (manual)
+        if: ${{ github.event_name == 'workflow_dispatch' && inputs.promote_to_stable }}
+        run: |
+          git fetch origin master develop --tags --force
+          git checkout -B master origin/master
+          git merge --no-ff --no-edit origin/develop
+          git push origin HEAD:master

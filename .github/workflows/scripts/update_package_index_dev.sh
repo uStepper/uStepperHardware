@@ -20,7 +20,7 @@ jq \
       error("No stable platform entry found to use as template.")
     else
       .packages[0].platforms =
-        ([{
+        ($stable_list + [{
           name: $template.name,
           architecture: $template.architecture,
           version: $ver,
@@ -31,7 +31,7 @@ jq \
           size: $size,
           boards: $template.boards,
           toolsDependencies: $template.toolsDependencies
-        }] + $stable_list)
+          }])
     end
 ' "$PACKAGE_INDEX" > "$tmp"
 mv "$tmp" "$PACKAGE_INDEX"
